@@ -1,0 +1,1 @@
+{"api":"d3d8","arch":"x86","ok":true,"error":"","adapter":"Microsoft Hyper-V Video","vendorId":"0x0000","deviceId":"0x0000","modules":{"d3d8":"C:\\Windows\\SYSTEM32\\d3d8.dll","d3d9":"","d3d11":"","dxgi":""},"initMs":933.9,"frames":300,"draws":1000,"avgMs":47.975,"p50Ms":47.125,"p99Ms":59.938,"maxMs":76.750,"avgFps":20.8}

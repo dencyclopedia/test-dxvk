@@ -1,0 +1,37 @@
+{
+  "api": "d3d9",
+  "arch": "x64",
+  "ok": true,
+  "error": "",
+  "adapter": "llvmpipe (LLVM 23.1.4, 256 bits)",
+  "vendorId": "0x10005",
+  "deviceId": "0x0000",
+  "modules": {
+    "d3d8": "",
+    "d3d9": "D:\\a\\test-dxvk\\test-dxvk\\results\\ci-5\\windows-2022\\compat-dxvk1103-d3d9-64\\game\\d3d9.dll",
+    "d3d11": "",
+    "dxgi": "C:\\Windows\\system32\\dxgi.dll"
+  },
+  "initMs": 108.4,
+  "frames": 300,
+  "draws": 1000,
+  "avgMs": 18.628,
+  "p50Ms": 20.726,
+  "p99Ms": 22.225,
+  "maxMs": 67.727,
+  "avgFps": 53.7,
+  "availableTextureMemMB": 4092,
+  "case": "compat-dxvk1103-d3d9-64",
+  "dxvkVersion": "1.10.3",
+  "mode": "dxvk",
+  "exitCode": 0,
+  "wallSeconds": 5.8,
+  "env": "{}",
+  "conf": "",
+  "dxvkActive": true,
+  "dxvkBanner": "info:  DXVK: v1.10.3",
+  "dxvkErrors": [],
+  "logFiles": [
+    "dxprobe64_d3d9.log"
+  ]
+}

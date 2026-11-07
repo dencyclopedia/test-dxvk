@@ -1,0 +1,19 @@
+{
+  "ok": false,
+  "error": "no output (crash or timeout)",
+  "case": "fail-novulkan-d3d9-32",
+  "dxvkVersion": "3.1.1",
+  "mode": "novulkan",
+  "exitCode": -1073741819,
+  "wallSeconds": 0.1,
+  "env": "{}",
+  "conf": "",
+  "dxvkActive": true,
+  "dxvkBanner": "info:  DXVK: v3.1.1",
+  "dxvkErrors": [
+    "err:   Vulkan: vkGetInstanceProcAddr not found"
+  ],
+  "logFiles": [
+    "dxprobe32_d3d9.log"
+  ]
+}

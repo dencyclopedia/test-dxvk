@@ -1,0 +1,20 @@
+info:  Game: dxprobe64.exe
+info:  DXVK: v1.10.3
+info:  Built-in extension providers:
+info:    Win32 WSI
+info:    OpenVR
+info:    OpenXR
+info:  OpenVR: could not open registry key, status 2
+info:  OpenVR: Failed to locate module
+info:  Enabled instance extensions:
+info:    VK_KHR_get_surface_capabilities2
+info:    VK_KHR_surface
+info:    VK_KHR_win32_surface
+info:  llvmpipe (LLVM 23.1.4, 256 bits):
+info:    Driver: 26.2.6
+info:    Vulkan: 1.4.354
+info:    Memory Heap[0]: 
+info:      Size: 16378 MiB
+info:      Flags: 0x1
+info:      Memory Type[0]: Property Flags = 0xf
+info:  Adapter LUID 0: 0:1d11a9

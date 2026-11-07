@@ -1,0 +1,17 @@
+{
+  "os": "Microsoft Windows Server 2025 Datacenter",
+  "machine": "windows-2025",
+  "vulkanDriversKey": "",
+  "cores": 4,
+  "vulkan1InSystem32": true,
+  "vulkan1InSysWOW64": true,
+  "ramGB": 16.0,
+  "gpus": {
+    "Name": "Microsoft Hyper-V Video",
+    "DriverVersion": "10.0.26100.1150",
+    "AdapterRAM": null
+  },
+  "cpu": "Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz",
+  "version": "10.0.26100",
+  "build": "26100"
+}
