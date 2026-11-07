@@ -1,0 +1,3 @@
+warn:  D3D11DeviceFeatures: External memory features not supported
+warn:  D3D11DXGIDevice::QueryInterface: Unknown interface query
+warn:  0ec870a6-5d7e-4c22-8cfc-5baae07616ed

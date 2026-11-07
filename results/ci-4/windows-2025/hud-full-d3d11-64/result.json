@@ -1,0 +1,39 @@
+{
+  "api": "d3d11",
+  "arch": "x64",
+  "ok": true,
+  "error": "",
+  "adapter": "llvmpipe (LLVM 23.1.4, 256 bits)",
+  "vendorId": "0x10005",
+  "deviceId": "0x0000",
+  "modules": {
+    "d3d8": "",
+    "d3d9": "",
+    "d3d11": "D:\\a\\test-dxvk\\test-dxvk\\results\\ci-4\\windows-2025\\hud-full-d3d11-64\\game\\d3d11.dll",
+    "dxgi": "D:\\a\\test-dxvk\\test-dxvk\\results\\ci-4\\windows-2025\\hud-full-d3d11-64\\game\\dxgi.dll"
+  },
+  "initMs": 188.3,
+  "frames": 60,
+  "draws": 300,
+  "avgMs": 13.834,
+  "p50Ms": 5.738,
+  "p99Ms": 441.559,
+  "maxMs": 441.559,
+  "avgFps": 72.3,
+  "featureLevel": "b_0",
+  "dedicatedVideoMemoryMB": 16378,
+  "case": "hud-full-d3d11-64",
+  "dxvkVersion": "3.1.1",
+  "mode": "dxvk",
+  "exitCode": 0,
+  "wallSeconds": 8.4,
+  "env": "{\"DXVK_HUD\":\"full\"}",
+  "conf": "",
+  "dxvkActive": true,
+  "dxvkBanner": "info:  DXVK: v3.1.1",
+  "dxvkErrors": [],
+  "logFiles": [
+    "dxprobe64_d3d11.log",
+    "dxprobe64_dxgi.log"
+  ]
+}

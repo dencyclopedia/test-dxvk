@@ -1,0 +1,36 @@
+{
+  "api": "d3d8",
+  "arch": "x86",
+  "ok": true,
+  "error": "",
+  "adapter": "AMD Radeon RX 6700 XT",
+  "vendorId": "0x1002",
+  "deviceId": "0x73df",
+  "modules": {
+    "d3d8": "D:\\a\\test-dxvk\\test-dxvk\\results\\ci-4\\windows-2022\\base-dxvk311-d3d8-32\\game\\d3d8.dll",
+    "d3d9": "D:\\a\\test-dxvk\\test-dxvk\\results\\ci-4\\windows-2022\\base-dxvk311-d3d8-32\\game\\d3d9.dll",
+    "d3d11": "",
+    "dxgi": "C:\\Windows\\system32\\dxgi.dll"
+  },
+  "initMs": 165.3,
+  "frames": 300,
+  "draws": 1000,
+  "avgMs": 22.376,
+  "p50Ms": 6.266,
+  "p99Ms": 7.812,
+  "maxMs": 4212.844,
+  "avgFps": 44.7,
+  "case": "base-dxvk311-d3d8-32",
+  "dxvkVersion": "3.1.1",
+  "mode": "dxvk",
+  "exitCode": 0,
+  "wallSeconds": 7.01,
+  "env": "{}",
+  "conf": "",
+  "dxvkActive": true,
+  "dxvkBanner": "info:  DXVK: v3.1.1",
+  "dxvkErrors": [],
+  "logFiles": [
+    "dxprobe32_d3d9.log"
+  ]
+}
