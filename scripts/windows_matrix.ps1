@@ -39,10 +39,11 @@ $dlInfo | ConvertTo-Json | Set-Content "$Out\downloads.json"
 $rel = Invoke-RestMethod "https://api.github.com/repos/pal1000/mesa-dist-win/releases/latest" -Headers $hdr
 $asset = $rel.assets | Where-Object { $_.name -match "^mesa3d-.*-release-msvc\.7z$" } | Select-Object -First 1
 Invoke-WebRequest $asset.browser_download_url -OutFile "$Dl\mesa.7z"; 7z x "$Dl\mesa.7z" "-o$Dl\mesa" -y | Out-Null
-Invoke-WebRequest "https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-runtime-components.zip?u=" -OutFile "$Dl\vkrt.zip"
+# Khronos Vulkan loader (vulkan-1.dll), pinned: the "latest" component URLs return 404
+Invoke-WebRequest "https://sdk.lunarg.com/sdk/download/1.4.328.1/windows/VulkanRT-X64-1.4.328.1-Components.zip" -OutFile "$Dl\vkrt.zip"
 Expand-Archive "$Dl\vkrt.zip" "$Dl\vkrt" -Force
-$vk64 = Get-ChildItem "$Dl\vkrt" -Recurse -Filter vulkan-1.dll | Where-Object { $_.FullName -match "x64" } | Select-Object -First 1
-$vk32 = Get-ChildItem "$Dl\vkrt" -Recurse -Filter vulkan-1.dll | Where-Object { $_.FullName -match "x86" } | Select-Object -First 1
+$vk64 = Get-ChildItem "$Dl\vkrt" -Recurse -Filter vulkan-1.dll | Where-Object { $_.FullName -match "\\x64\\" } | Select-Object -First 1
+$vk32 = Get-ChildItem "$Dl\vkrt" -Recurse -Filter vulkan-1.dll | Where-Object { $_.FullName -match "\\x86\\" } | Select-Object -First 1
 $icd64 = Get-ChildItem "$Dl\mesa\x64" -Filter "lvp_icd*.json" | Select-Object -First 1
 $icd32 = Get-ChildItem "$Dl\mesa\x86" -Filter "lvp_icd*.json" | Select-Object -First 1
 @{ mesa = $rel.tag_name; mesaAsset = $asset.name; vulkan64 = "$vk64"; vulkan32 = "$vk32"; icd64 = "$icd64"; icd32 = "$icd32" } |
