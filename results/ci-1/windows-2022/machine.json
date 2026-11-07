@@ -1,0 +1,17 @@
+{
+  "vulkan1InSysWOW64": false,
+  "build": "20348",
+  "machine": "windows-2022",
+  "os": "Microsoft Windows Server 2022 Datacenter",
+  "cores": 4,
+  "vulkanDriversKey": "",
+  "vulkan1InSystem32": false,
+  "version": "10.0.20348",
+  "ramGB": 16.0,
+  "cpu": "Intel(R) Xeon(R) 6973P-C",
+  "gpus": {
+    "Name": "Microsoft Hyper-V Video",
+    "DriverVersion": "10.0.20348.1",
+    "AdapterRAM": null
+  }
+}

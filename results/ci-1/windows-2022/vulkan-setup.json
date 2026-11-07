@@ -1,0 +1,8 @@
+{
+  "mesa": "26.2.6",
+  "vulkan32": "",
+  "icd64": "",
+  "vulkan64": "",
+  "icd32": "",
+  "mesaAsset": "mesa3d-26.2.6-release-msvc.7z"
+}

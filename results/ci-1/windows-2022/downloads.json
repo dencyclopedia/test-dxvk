@@ -1,0 +1,20 @@
+[
+  {
+    "sha256": "40565B4A724AADC4433FA4E010B4B23916D9B1F1BAEEE64E17186DB94F54E608",
+    "seconds": 0.6764301,
+    "bytes": 18041512,
+    "version": "3.1.1"
+  },
+  {
+    "sha256": null,
+    "seconds": 0.4151537,
+    "bytes": 0,
+    "version": "2.7.1"
+  },
+  {
+    "sha256": null,
+    "seconds": 0.2873119,
+    "bytes": 0,
+    "version": "1.10.3"
+  }
+]

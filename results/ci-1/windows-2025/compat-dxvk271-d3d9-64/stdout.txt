@@ -1,0 +1,1 @@
+{"api":"d3d9","arch":"x64","ok":true,"error":"","adapter":"Microsoft Basic Render Driver","vendorId":"0x1414","deviceId":"0x008c","modules":{"d3d8":"","d3d9":"C:\\Windows\\SYSTEM32\\d3d9.dll","d3d11":"","dxgi":""},"initMs":10.6,"frames":300,"draws":1000,"avgMs":37.467,"p50Ms":36.353,"p99Ms":55.292,"maxMs":57.363,"avgFps":26.7,"availableTextureMemMB":4094}
