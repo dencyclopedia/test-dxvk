@@ -9,6 +9,12 @@ $Root = Split-Path -Parent $PSScriptRoot
 $Out = Join-Path $Root "results\$Run\$Machine"; New-Item -ItemType Directory -Force $Out | Out-Null
 $Dl = Join-Path $(if ($env:RUNNER_TEMP) { $env:RUNNER_TEMP } else { $env:TEMP }) "dxvkdl"; New-Item -ItemType Directory -Force $Dl | Out-Null
 Add-Type -AssemblyName System.Windows.Forms, System.Drawing
+Add-Type @"
+using System; using System.Runtime.InteropServices;
+public static class W { [DllImport("user32.dll")] public static extern bool SetForegroundWindow(IntPtr h);
+  [DllImport("user32.dll")] public static extern bool ShowWindow(IntPtr h, int c);
+}
+"@ -ErrorAction SilentlyContinue
 
 function Shot($path) {
   $b = [System.Windows.Forms.SystemInformation]::VirtualScreen
@@ -79,7 +85,12 @@ function Case($name, $api, $arch, $frames, $draws, $ver, $mode, $envs = @{}, $co
   $t0 = Get-Date
   $p = Start-Process "$game\dxprobe$arch.exe" -ArgumentList $api, $frames, $draws, $hold -WorkingDirectory $game -PassThru `
        -RedirectStandardOutput "$dir\stdout.txt" -RedirectStandardError "$dir\stderr.txt" -WindowStyle Normal
-  if ($shotAt -gt 0) { Start-Sleep -Seconds $shotAt; Shot "$dir\shot.png" }
+  if ($shotAt -gt 0) {
+    Start-Sleep -Seconds $shotAt
+    # minimise every other top-level window (the runner's console sits on top) and raise the game window
+    Get-Process | Where-Object { $_.MainWindowHandle -ne 0 -and $_.Id -ne $p.Id } | ForEach-Object { [W]::ShowWindow($_.MainWindowHandle, 6) | Out-Null }
+    $p.Refresh(); if ($p.MainWindowHandle -ne 0) { [W]::ShowWindow($p.MainWindowHandle, 9) | Out-Null; [W]::SetForegroundWindow($p.MainWindowHandle) | Out-Null }
+    Start-Sleep -Milliseconds 800; Shot "$dir\shot.png" }
   if (-not $p.WaitForExit(180000)) { $p.Kill() }
   $wall = ((Get-Date) - $t0).TotalSeconds
   foreach ($k in $envs.Keys) { Remove-Item "env:$k" -ErrorAction SilentlyContinue }
