@@ -76,6 +76,11 @@ function Case($name, $api, $arch, $frames, $draws, $ver, $mode, $envs = @{}, $co
       "novulkan"  { Copy-Item "$Dl\dxvk-$ver\$sub\*.dll" $game }
       "d3d11only" { Copy-Item "$Dl\dxvk-$ver\$sub\d3d11.dll" $game }
       "wrongarch" { Copy-Item "$Dl\dxvk-$ver\$other\*.dll" $game }
+      default {
+        # only:<dll,dll>  copy just these DXVK DLLs;  swap:<oldver>  install <oldver> first, then copy $ver over it (an upgrade in place)
+        if ($mode -like "only:*") { foreach ($n in ($mode.Substring(5) -split ",")) { Copy-Item "$Dl\dxvk-$ver\$sub\$n.dll" $game } }
+        elseif ($mode -like "swap:*") { Copy-Item "$Dl\dxvk-$($mode.Substring(5))\$sub\*.dll" $game; Copy-Item "$Dl\dxvk-$ver\$sub\*.dll" $game -Force }
+      }
     }
     if ($mode -ne "novulkan") { Copy-Item $vk.FullName $game; $env:VK_DRIVER_FILES = $icd.FullName; $env:VK_ICD_FILENAMES = $icd.FullName }
   }
@@ -104,6 +109,7 @@ function Case($name, $api, $arch, $frames, $draws, $ver, $mode, $envs = @{}, $co
   $res | Add-Member -Force exitCode $p.ExitCode; $res | Add-Member -Force wallSeconds ([math]::Round($wall, 2))
   $res | Add-Member -Force env ($envs | ConvertTo-Json -Compress); $res | Add-Member -Force conf $conf
   $res | Add-Member -Force dxvkActive ([bool]$banner); $res | Add-Member -Force dxvkBanner "$banner"; $res | Add-Member -Force dxvkErrors $errs
+  $res | Add-Member -Force gameDlls @(Get-ChildItem $game -Filter *.dll -ErrorAction SilentlyContinue | ForEach-Object { "$($_.Name):$($_.Length)" })
   $res | Add-Member -Force logFiles @($logs | ForEach-Object Name)
   $res | ConvertTo-Json -Depth 4 | Set-Content "$dir\result.json"
   foreach ($l in $logs) { Copy-Item $l.FullName $dir }
@@ -128,6 +134,16 @@ Case "fail-wrongarch-d3d9-32" "d3d9" "32" 30 100 "3.1.1" "wrongarch"
 Case "fail-wrongarch-d3d11-64" "d3d11" "64" 30 100 "3.1.1" "wrongarch"
 Case "fail-vk13-dxvk311-d3d11-64" "d3d11" "64" 30 100 "3.1.1" "dxvk" @{ MESA_VK_VERSION_OVERRIDE = "1.3" }
 Case "log-path-d3d11-64" "d3d11" "64" 30 100 "3.1.1" "dxvk" @{ DXVK_LOG_LEVEL = "warn" }
+# DLL sets (T-WIN-05/06/08): which DLLs each API needs, and what an in-place upgrade leaves behind
+Case "dll-d3d9only-d3d9-64" "d3d9" "64" 30 100 "3.1.1" "only:d3d9"
+Case "dll-d3d9only-d3d9-32" "d3d9" "32" 30 100 "3.1.1" "only:d3d9"
+Case "dll-dxgionly-d3d11-64" "d3d11" "64" 30 100 "3.1.1" "only:dxgi"
+Case "dll-d3d11dxgi-d3d11-64" "d3d11" "64" 30 100 "3.1.1" "only:d3d11,dxgi"
+Case "dll-d3d8only-d3d8-32" "d3d8" "32" 30 100 "3.1.1" "only:d3d8"
+Case "dll-d3d8d3d9-d3d8-32" "d3d8" "32" 30 100 "3.1.1" "only:d3d8,d3d9"
+Case "swap-1103to311-d3d11-64" "d3d11" "64" 30 100 "3.1.1" "swap:1.10.3"
+Case "swap-1103to311-d3d9-64" "d3d9" "64" 30 100 "3.1.1" "swap:1.10.3"
+Case "swap-271to311-d3d11-64" "d3d11" "64" 30 100 "3.1.1" "swap:2.7.1"
 # uninstall = delete the DLLs: the same folder must go back to native Direct3D
 $u = "$Out\uninstall-d3d11-64"; Case "uninstall-before-d3d11-64" "d3d11" "64" 30 100 "3.1.1" "dxvk"
 Remove-Item "$Out\uninstall-before-d3d11-64\game\*.dll"; New-Item -ItemType Directory -Force $u | Out-Null; Copy-Item "$Out\uninstall-before-d3d11-64\game" "$u\game" -Recurse -Force
