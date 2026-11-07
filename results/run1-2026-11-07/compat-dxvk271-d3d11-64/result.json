@@ -1,0 +1,23 @@
+{
+ "ok": false,
+ "error": "no output (crash or timeout)",
+ "case": "compat-dxvk271-d3d11-64",
+ "apiRequested": "d3d11",
+ "archRequested": "64",
+ "dxvkVersion": "2.7.1",
+ "method": "local",
+ "exitCode": 124,
+ "wallSeconds": 180.01,
+ "env": "",
+ "conf": "",
+ "dxvkActive": true,
+ "dxvkBanner": "info:  DXVK: v2.7.1",
+ "dxvkErrors": [
+  "err:   readMonitorEdidFromKey: Failed to get EDID reg key size",
+  "err:   DXGI: Failed to parse display metadata + colorimetry info, using blank."
+ ],
+ "logFiles": [
+  "dxprobe64_d3d11.log",
+  "dxprobe64_dxgi.log"
+ ]
+}

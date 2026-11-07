@@ -7,7 +7,7 @@ param([string]$Run = "run-local", [string]$Machine = $env:COMPUTERNAME)
 $ErrorActionPreference = "Continue"
 $Root = Split-Path -Parent $PSScriptRoot
 $Out = Join-Path $Root "results\$Run\$Machine"; New-Item -ItemType Directory -Force $Out | Out-Null
-$Dl = Join-Path $env:RUNNER_TEMP "dl"; New-Item -ItemType Directory -Force $Dl | Out-Null
+$Dl = Join-Path $(if ($env:RUNNER_TEMP) { $env:RUNNER_TEMP } else { $env:TEMP }) "dxvkdl"; New-Item -ItemType Directory -Force $Dl | Out-Null
 Add-Type -AssemblyName System.Windows.Forms, System.Drawing
 
 function Shot($path) {
@@ -28,14 +28,14 @@ $gpu = Get-CimInstance Win32_VideoController | Select-Object Name, DriverVersion
 
 # ---- downloads: DXVK releases, Mesa lavapipe for Windows, Vulkan loader
 $hdr = @{ "User-Agent" = "dxvk-lab"; "Authorization" = "Bearer $env:GITHUB_TOKEN" }
-$dl = @()
+$dlInfo = @()
 foreach ($v in "3.1.1", "2.7.1", "1.10.3") {
   $f = "$Dl\dxvk-$v.tar.gz"
   $t0 = Get-Date; Invoke-WebRequest "https://github.com/doitsujin/dxvk/releases/download/v$v/dxvk-$v.tar.gz" -OutFile $f
-  $dl += @{ version = $v; seconds = ((Get-Date) - $t0).TotalSeconds; bytes = (Get-Item $f).Length; sha256 = (Get-FileHash $f).Hash }
+  $dlInfo += @{ version = $v; seconds = ((Get-Date) - $t0).TotalSeconds; bytes = (Get-Item $f).Length; sha256 = (Get-FileHash $f).Hash }
   tar -xzf $f -C $Dl
 }
-$dl | ConvertTo-Json | Set-Content "$Out\downloads.json"
+$dlInfo | ConvertTo-Json | Set-Content "$Out\downloads.json"
 $rel = Invoke-RestMethod "https://api.github.com/repos/pal1000/mesa-dist-win/releases/latest" -Headers $hdr
 $asset = $rel.assets | Where-Object { $_.name -match "^mesa3d-.*-release-msvc\.7z$" } | Select-Object -First 1
 Invoke-WebRequest $asset.browser_download_url -OutFile "$Dl\mesa.7z"; 7z x "$Dl\mesa.7z" "-o$Dl\mesa" -y | Out-Null
@@ -109,7 +109,7 @@ Case "fail-vk13-dxvk311-d3d11-64" "d3d11" "64" 30 100 "3.1.1" "dxvk" @{ MESA_VK_
 Case "log-path-d3d11-64" "d3d11" "64" 30 100 "3.1.1" "dxvk" @{ DXVK_LOG_LEVEL = "warn" }
 # uninstall = delete the DLLs: the same folder must go back to native Direct3D
 $u = "$Out\uninstall-d3d11-64"; Case "uninstall-before-d3d11-64" "d3d11" "64" 30 100 "3.1.1" "dxvk"
-Remove-Item "$Out\uninstall-before-d3d11-64\game\*.dll"; Copy-Item "$Out\uninstall-before-d3d11-64\game" $u -Recurse -Force
+Remove-Item "$Out\uninstall-before-d3d11-64\game\*.dll"; New-Item -ItemType Directory -Force $u | Out-Null; Copy-Item "$Out\uninstall-before-d3d11-64\game" "$u\game" -Recurse -Force
 Push-Location $u\game; $o = & .\dxprobe64.exe d3d11 30 100 0; Pop-Location; Set-Content "$u\stdout.txt" $o
 # the shader cache location on Windows (default %LOCALAPPDATA%\dxvk)
 Get-ChildItem "$env:LOCALAPPDATA\dxvk" -Recurse -ErrorAction SilentlyContinue | Select-Object FullName, Length, LastWriteTime |

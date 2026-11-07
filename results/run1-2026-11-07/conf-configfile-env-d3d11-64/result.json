@@ -1,0 +1,44 @@
+{
+ "api": "d3d11",
+ "arch": "x64",
+ "ok": true,
+ "error": "",
+ "adapter": "llvmpipe (LLVM 20.1.2, 256 bits)",
+ "vendorId": "0x10005",
+ "deviceId": "0x0000",
+ "modules": {
+  "d3d8": "",
+  "d3d9": "",
+  "d3d11": "Z:\\home\\user\\test-dxvk\\results\\run1-2026-11-07\\conf-configfile-env-d3d11-64\\game\\d3d11.dll",
+  "dxgi": "Z:\\home\\user\\test-dxvk\\results\\run1-2026-11-07\\conf-configfile-env-d3d11-64\\game\\dxgi.dll"
+ },
+ "initMs": 54.7,
+ "frames": 30,
+ "draws": 100,
+ "avgMs": 3.961,
+ "p50Ms": 2.946,
+ "p99Ms": 24.739,
+ "maxMs": 24.739,
+ "avgFps": 252.5,
+ "featureLevel": "b_0",
+ "dedicatedVideoMemoryMB": 16086,
+ "case": "conf-configfile-env-d3d11-64",
+ "apiRequested": "d3d11",
+ "archRequested": "64",
+ "dxvkVersion": "3.1.1",
+ "method": "local",
+ "exitCode": 0,
+ "wallSeconds": 0.76,
+ "env": "DXVK_CONFIG_FILE=Z:/tmp/none-such.conf",
+ "conf": "",
+ "dxvkActive": true,
+ "dxvkBanner": "info:  DXVK: v3.1.1",
+ "dxvkErrors": [
+  "err:   readMonitorEdidFromKey: Failed to get EDID reg key size",
+  "err:   DXGI: Failed to parse display metadata + colorimetry info, using blank."
+ ],
+ "logFiles": [
+  "dxprobe64_d3d11.log",
+  "dxprobe64_dxgi.log"
+ ]
+}

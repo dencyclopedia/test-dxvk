@@ -1,0 +1,1 @@
+{"api":"d3d9","arch":"x86","ok":true,"error":"","adapter":"NVIDIA GeForce GTX 470","vendorId":"0x10de","deviceId":"0x06cd","modules":{"d3d8":"","d3d9":"C:\\windows\\system32\\d3d9.dll","d3d11":"","dxgi":""},"initMs":1056.2,"frames":30,"draws":100,"avgMs":9.333,"p50Ms":2.125,"p99Ms":143.875,"maxMs":143.875,"avgFps":107.1,"availableTextureMemMB":4095}
