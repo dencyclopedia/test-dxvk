@@ -1,0 +1,26 @@
+{
+  "ok": false,
+  "error": "no output (crash or timeout)",
+  "case": "fail-novulkan-d3d9-32",
+  "dxvkVersion": "3.1.1",
+  "mode": "novulkan",
+  "exitCode": -1073741819,
+  "wallSeconds": 0.09,
+  "env": "{}",
+  "conf": "",
+  "dxvkActive": true,
+  "dxvkBanner": "info:  DXVK: v3.1.1",
+  "dxvkErrors": [
+    "err:   Vulkan: vkGetInstanceProcAddr not found"
+  ],
+  "gameDlls": [
+    "d3d10core.dll:180238",
+    "d3d11.dll:8192014",
+    "d3d8.dll:1687566",
+    "d3d9.dll:7856142",
+    "dxgi.dll:5877774"
+  ],
+  "logFiles": [
+    "dxprobe32_d3d9.log"
+  ]
+}

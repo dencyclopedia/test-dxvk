@@ -1,0 +1,41 @@
+{
+  "api": "d3d8",
+  "arch": "x86",
+  "ok": true,
+  "error": "",
+  "adapter": "AMD Radeon RX 6700 XT",
+  "vendorId": "0x1002",
+  "deviceId": "0x73df",
+  "modules": {
+    "d3d8": "D:\\a\\test-dxvk\\test-dxvk\\results\\ci-6\\windows-2025\\dll-d3d8d3d9-d3d8-32\\game\\d3d8.dll",
+    "d3d9": "D:\\a\\test-dxvk\\test-dxvk\\results\\ci-6\\windows-2025\\dll-d3d8d3d9-d3d8-32\\game\\d3d9.dll",
+    "d3d11": "",
+    "dxgi": "C:\\Windows\\system32\\dxgi.dll"
+  },
+  "initMs": 223.2,
+  "frames": 30,
+  "draws": 100,
+  "avgMs": 109.929,
+  "p50Ms": 3.094,
+  "p99Ms": 2805.25,
+  "maxMs": 2805.25,
+  "avgFps": 9.1,
+  "case": "dll-d3d8d3d9-d3d8-32",
+  "dxvkVersion": "3.1.1",
+  "mode": "only:d3d8,d3d9",
+  "exitCode": 0,
+  "wallSeconds": 3.75,
+  "env": "{}",
+  "conf": "",
+  "dxvkActive": true,
+  "dxvkBanner": "info:  DXVK: v3.1.1",
+  "dxvkErrors": [],
+  "gameDlls": [
+    "d3d8.dll:1687566",
+    "d3d9.dll:7856142",
+    "vulkan-1.dll:1438136"
+  ],
+  "logFiles": [
+    "dxprobe32_d3d9.log"
+  ]
+}

@@ -1,0 +1,21 @@
+info:  Game: dxprobe64.exe
+info:  DXVK: v3.1.1
+info:  Build: x86_64 gcc 16.2.0
+info:  Found config file: dxvk.conf
+info:  Effective configuration:
+info:    dxvk.maxFrameRate = 60
+info:  Vulkan: Found vkGetInstanceProcAddr in vulkan-1.dll @ 0x7ffda2daf070
+info:  Extension providers:
+info:    Platform WSI
+info:    OpenVR
+info:  OpenVR: could not open registry key, status 2
+info:  OpenVR: Failed to locate module
+info:    OpenXR
+info:  Enabled instance extensions:
+info:    VK_KHR_get_surface_capabilities2
+info:    VK_KHR_surface
+info:    VK_KHR_surface_maintenance1
+info:    VK_KHR_win32_surface
+info:  Found device: llvmpipe (LLVM 23.1.4, 256 bits) (llvmpipe 26.2.6)
+warn:  DXGI: Found monitors not associated with any adapter, using fallback
+info:  Adapter LUID 0: 0:20e225

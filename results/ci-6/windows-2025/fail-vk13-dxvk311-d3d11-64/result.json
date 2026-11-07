@@ -1,0 +1,47 @@
+{
+  "api": "d3d11",
+  "arch": "x64",
+  "ok": true,
+  "error": "",
+  "adapter": "llvmpipe (LLVM 23.1.4, 256 bits)",
+  "vendorId": "0x10005",
+  "deviceId": "0x0000",
+  "modules": {
+    "d3d8": "",
+    "d3d9": "",
+    "d3d11": "D:\\a\\test-dxvk\\test-dxvk\\results\\ci-6\\windows-2025\\fail-vk13-dxvk311-d3d11-64\\game\\d3d11.dll",
+    "dxgi": "D:\\a\\test-dxvk\\test-dxvk\\results\\ci-6\\windows-2025\\fail-vk13-dxvk311-d3d11-64\\game\\dxgi.dll"
+  },
+  "initMs": 171.7,
+  "frames": 30,
+  "draws": 100,
+  "avgMs": 8.484,
+  "p50Ms": 3.119,
+  "p99Ms": 130.49,
+  "maxMs": 130.49,
+  "avgFps": 117.9,
+  "featureLevel": "b_0",
+  "dedicatedVideoMemoryMB": 16378,
+  "case": "fail-vk13-dxvk311-d3d11-64",
+  "dxvkVersion": "3.1.1",
+  "mode": "dxvk",
+  "exitCode": 0,
+  "wallSeconds": 0.71,
+  "env": "{\"MESA_VK_VERSION_OVERRIDE\":\"1.3\"}",
+  "conf": "",
+  "dxvkActive": true,
+  "dxvkBanner": "info:  DXVK: v3.1.1",
+  "dxvkErrors": [],
+  "gameDlls": [
+    "d3d10core.dll:122894",
+    "d3d11.dll:7483406",
+    "d3d8.dll:1564686",
+    "d3d9.dll:7286798",
+    "dxgi.dll:5414926",
+    "vulkan-1.dll:1632696"
+  ],
+  "logFiles": [
+    "dxprobe64_d3d11.log",
+    "dxprobe64_dxgi.log"
+  ]
+}

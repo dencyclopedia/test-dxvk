@@ -1,0 +1,48 @@
+{
+  "api": "d3d11",
+  "arch": "x64",
+  "ok": false,
+  "error": "D3D11CreateDeviceAndSwapChain hr=0x80004005",
+  "adapter": "",
+  "vendorId": "0x0000",
+  "deviceId": "0x0000",
+  "modules": {
+    "d3d8": "",
+    "d3d9": "",
+    "d3d11": "D:\\a\\test-dxvk\\test-dxvk\\results\\ci-6\\windows-2025\\fail-novulkan-d3d11-64\\game\\d3d11.dll",
+    "dxgi": "D:\\a\\test-dxvk\\test-dxvk\\results\\ci-6\\windows-2025\\fail-novulkan-d3d11-64\\game\\dxgi.dll"
+  },
+  "initMs": 0.0,
+  "frames": 0,
+  "draws": 100,
+  "avgMs": 0.0,
+  "p50Ms": 0.0,
+  "p99Ms": 0.0,
+  "maxMs": 0.0,
+  "avgFps": 0.0,
+  "case": "fail-novulkan-d3d11-64",
+  "dxvkVersion": "3.1.1",
+  "mode": "novulkan",
+  "exitCode": 1,
+  "wallSeconds": 1.76,
+  "env": "{}",
+  "conf": "",
+  "dxvkActive": true,
+  "dxvkBanner": "info:  DXVK: v3.1.1",
+  "dxvkErrors": [
+    "err:   D3D11CreateDevice: Failed to create a DXGI factory",
+    "err:   DxvkInstance::createInstance: Failed to create Vulkan instance",
+    "err:   Failed to initialize DXVK."
+  ],
+  "gameDlls": [
+    "d3d10core.dll:122894",
+    "d3d11.dll:7483406",
+    "d3d8.dll:1564686",
+    "d3d9.dll:7286798",
+    "dxgi.dll:5414926"
+  ],
+  "logFiles": [
+    "dxprobe64_d3d11.log",
+    "dxprobe64_dxgi.log"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "ok": false,
+  "error": "no output (crash or timeout)",
+  "case": "dll-dxgionly-d3d11-64",
+  "dxvkVersion": "3.1.1",
+  "mode": "only:dxgi",
+  "exitCode": -1073741819,
+  "wallSeconds": 0.28,
+  "env": "{}",
+  "conf": "",
+  "dxvkActive": true,
+  "dxvkBanner": "info:  DXVK: v3.1.1",
+  "dxvkErrors": [],
+  "gameDlls": [
+    "dxgi.dll:5414926",
+    "vulkan-1.dll:1632696"
+  ],
+  "logFiles": [
+    "dxprobe64_dxgi.log"
+  ]
+}

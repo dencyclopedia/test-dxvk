@@ -1,0 +1,42 @@
+{
+  "api": "d3d8",
+  "arch": "x86",
+  "ok": false,
+  "error": "Direct3DCreate8 returned NULL",
+  "adapter": "",
+  "vendorId": "0x0000",
+  "deviceId": "0x0000",
+  "modules": {
+    "d3d8": "D:\\a\\test-dxvk\\test-dxvk\\results\\ci-6\\windows-2022\\dll-d3d8only-d3d8-32\\game\\d3d8.dll",
+    "d3d9": "C:\\Windows\\SYSTEM32\\d3d9.dll",
+    "d3d11": "",
+    "dxgi": ""
+  },
+  "initMs": 0.0,
+  "frames": 0,
+  "draws": 100,
+  "avgMs": 0.0,
+  "p50Ms": 0.0,
+  "p99Ms": 0.0,
+  "maxMs": 0.0,
+  "avgFps": 0.0,
+  "case": "dll-d3d8only-d3d8-32",
+  "dxvkVersion": "3.1.1",
+  "mode": "only:d3d8",
+  "exitCode": 1,
+  "wallSeconds": 0.09,
+  "env": "{}",
+  "conf": "",
+  "dxvkActive": false,
+  "dxvkBanner": "",
+  "dxvkErrors": [
+    "err:   D3D8Interface: ERROR! Failed to get D3D9 Bridge. d3d9.dll might not be DXVK!"
+  ],
+  "gameDlls": [
+    "d3d8.dll:1687566",
+    "vulkan-1.dll:1438136"
+  ],
+  "logFiles": [
+    "dxprobe32_d3d8.log"
+  ]
+}
