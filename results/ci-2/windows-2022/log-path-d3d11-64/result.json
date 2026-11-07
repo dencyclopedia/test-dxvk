@@ -1,0 +1,19 @@
+{
+  "ok": false,
+  "error": "no output (crash or timeout)",
+  "case": "log-path-d3d11-64",
+  "dxvkVersion": "3.1.1",
+  "mode": "dxvk",
+  "exitCode": -1073741819,
+  "wallSeconds": 0.15,
+  "env": "{\"DXVK_LOG_LEVEL\":\"warn\"}",
+  "conf": "",
+  "dxvkActive": false,
+  "dxvkBanner": "",
+  "dxvkErrors": [
+    "err:   Vulkan: vkGetInstanceProcAddr not found"
+  ],
+  "logFiles": [
+    "dxprobe64_dxgi.log"
+  ]
+}

@@ -1,0 +1,13 @@
+info:  Game: dxprobe32.exe
+info:  DXVK: v3.1.1
+info:  Build: x86 gcc 16.2.0
+info:  Vulkan: Found vkGetInstanceProcAddr in vulkan-1.dll @ 0x73cc1660
+info:  Extension providers:
+info:    Platform WSI
+info:    OpenVR
+info:  OpenVR: could not open registry key, status 2
+info:  OpenVR: Failed to locate module
+info:    OpenXR
+info:  Enabled instance extensions:
+info:    VK_KHR_win32_surface
+err:   DxvkInstance::createInstance: Failed to create Vulkan instance

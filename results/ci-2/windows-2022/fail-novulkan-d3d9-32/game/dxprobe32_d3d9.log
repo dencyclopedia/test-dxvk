@@ -1,0 +1,4 @@
+info:  Game: dxprobe32.exe
+info:  DXVK: v3.1.1
+info:  Build: x86 gcc 16.2.0
+err:   Vulkan: vkGetInstanceProcAddr not found

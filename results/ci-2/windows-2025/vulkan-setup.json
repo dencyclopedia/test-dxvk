@@ -1,0 +1,8 @@
+{
+  "mesa": "26.2.6",
+  "vulkan32": "",
+  "icd32": "D:\\a\\_temp\\dxvkdl\\mesa\\x86\\lvp_icd.x86.json",
+  "icd64": "D:\\a\\_temp\\dxvkdl\\mesa\\x64\\lvp_icd.x86_64.json",
+  "vulkan64": "",
+  "mesaAsset": "mesa3d-26.2.6-release-msvc.7z"
+}

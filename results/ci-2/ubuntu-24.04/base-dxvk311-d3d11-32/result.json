@@ -1,0 +1,44 @@
+{
+ "api": "d3d11",
+ "arch": "x86",
+ "ok": true,
+ "error": "",
+ "adapter": "llvmpipe (LLVM 20.1.2, 256 bits)",
+ "vendorId": "0x10005",
+ "deviceId": "0x0000",
+ "modules": {
+  "d3d8": "",
+  "d3d9": "",
+  "d3d11": "Z:\\home\\runner\\work\\test-dxvk\\test-dxvk\\results\\ci-2\\ubuntu-24.04\\base-dxvk311-d3d11-32\\game\\d3d11.dll",
+  "dxgi": "Z:\\home\\runner\\work\\test-dxvk\\test-dxvk\\results\\ci-2\\ubuntu-24.04\\base-dxvk311-d3d11-32\\game\\dxgi.dll"
+ },
+ "initMs": 64.0,
+ "frames": 300,
+ "draws": 1000,
+ "avgMs": 4.885,
+ "p50Ms": 4.646,
+ "p99Ms": 6.105,
+ "maxMs": 56.538,
+ "avgFps": 204.7,
+ "featureLevel": "b_0",
+ "dedicatedVideoMemoryMB": 3072,
+ "case": "base-dxvk311-d3d11-32",
+ "apiRequested": "d3d11",
+ "archRequested": "32",
+ "dxvkVersion": "3.1.1",
+ "method": "local",
+ "exitCode": 0,
+ "wallSeconds": 2.02,
+ "env": "",
+ "conf": "",
+ "dxvkActive": true,
+ "dxvkBanner": "info:  DXVK: v3.1.1",
+ "dxvkErrors": [
+  "err:   readMonitorEdidFromKey: Failed to get EDID reg key size",
+  "err:   DXGI: Failed to parse display metadata + colorimetry info, using blank."
+ ],
+ "logFiles": [
+  "dxprobe32_d3d11.log",
+  "dxprobe32_dxgi.log"
+ ]
+}

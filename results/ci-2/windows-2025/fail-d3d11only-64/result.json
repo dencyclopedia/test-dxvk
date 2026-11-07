@@ -1,0 +1,19 @@
+{
+  "ok": false,
+  "error": "no output (crash or timeout)",
+  "case": "fail-d3d11only-64",
+  "dxvkVersion": "3.1.1",
+  "mode": "d3d11only",
+  "exitCode": -1073740791,
+  "wallSeconds": 0.29,
+  "env": "{}",
+  "conf": "",
+  "dxvkActive": true,
+  "dxvkBanner": "info:  DXVK: v3.1.1",
+  "dxvkErrors": [
+    "err:   DxvkInstance::createInstance: Failed to create Vulkan instance"
+  ],
+  "logFiles": [
+    "dxprobe64_d3d11.log"
+  ]
+}

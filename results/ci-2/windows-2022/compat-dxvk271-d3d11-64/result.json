@@ -1,0 +1,19 @@
+{
+  "ok": false,
+  "error": "no output (crash or timeout)",
+  "case": "compat-dxvk271-d3d11-64",
+  "dxvkVersion": "2.7.1",
+  "mode": "dxvk",
+  "exitCode": -1073741819,
+  "wallSeconds": 0.08,
+  "env": "{}",
+  "conf": "",
+  "dxvkActive": true,
+  "dxvkBanner": "info:  DXVK: v2.7.1",
+  "dxvkErrors": [
+    "err:   Vulkan: vkGetInstanceProcAddr not found"
+  ],
+  "logFiles": [
+    "dxprobe64_dxgi.log"
+  ]
+}

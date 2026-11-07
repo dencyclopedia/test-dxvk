@@ -1,0 +1,2 @@
+err:   DxvkInstance::createInstance: Failed to create Vulkan instance
+err:   Failed to initialize DXVK.

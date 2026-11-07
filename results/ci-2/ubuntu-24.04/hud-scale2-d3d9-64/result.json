@@ -1,0 +1,39 @@
+{
+ "api": "d3d9",
+ "arch": "x64",
+ "ok": true,
+ "error": "",
+ "adapter": "AMD Radeon RX 6700 XT",
+ "vendorId": "0x1002",
+ "deviceId": "0x73df",
+ "modules": {
+  "d3d8": "",
+  "d3d9": "Z:\\home\\runner\\work\\test-dxvk\\test-dxvk\\results\\ci-2\\ubuntu-24.04\\hud-scale2-d3d9-64\\game\\d3d9.dll",
+  "d3d11": "",
+  "dxgi": ""
+ },
+ "initMs": 55.1,
+ "frames": 60,
+ "draws": 300,
+ "avgMs": 8.32,
+ "p50Ms": 3.815,
+ "p99Ms": 253.318,
+ "maxMs": 253.318,
+ "avgFps": 120.2,
+ "availableTextureMemMB": 4086,
+ "case": "hud-scale2-d3d9-64",
+ "apiRequested": "d3d9",
+ "archRequested": "64",
+ "dxvkVersion": "3.1.1",
+ "method": "local",
+ "exitCode": 0,
+ "wallSeconds": 8.72,
+ "env": "DXVK_HUD=fps,devinfo,scale=2.0",
+ "conf": "",
+ "dxvkActive": true,
+ "dxvkBanner": "info:  DXVK: v3.1.1",
+ "dxvkErrors": [],
+ "logFiles": [
+  "dxprobe64_d3d9.log"
+ ]
+}

@@ -1,0 +1,7 @@
+info:  Game: dxprobe64.exe
+info:  DXVK: v3.1.1
+info:  Build: x86_64 gcc 16.2.0
+info:  Found config file: dxvk.conf
+info:  Effective configuration:
+info:    dxvk.maxFrameRate = 60
+err:   Vulkan: vkGetInstanceProcAddr not found

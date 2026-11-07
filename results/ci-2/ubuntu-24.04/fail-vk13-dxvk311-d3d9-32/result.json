@@ -1,0 +1,39 @@
+{
+ "api": "d3d9",
+ "arch": "x86",
+ "ok": true,
+ "error": "",
+ "adapter": "AMD Radeon RX 6700 XT",
+ "vendorId": "0x1002",
+ "deviceId": "0x73df",
+ "modules": {
+  "d3d8": "",
+  "d3d9": "Z:\\home\\runner\\work\\test-dxvk\\test-dxvk\\results\\ci-2\\ubuntu-24.04\\fail-vk13-dxvk311-d3d9-32\\game\\d3d9.dll",
+  "d3d11": "",
+  "dxgi": ""
+ },
+ "initMs": 56.4,
+ "frames": 30,
+ "draws": 100,
+ "avgMs": 12.183,
+ "p50Ms": 3.25,
+ "p99Ms": 253.5,
+ "maxMs": 253.5,
+ "avgFps": 82.1,
+ "availableTextureMemMB": 3062,
+ "case": "fail-vk13-dxvk311-d3d9-32",
+ "apiRequested": "d3d9",
+ "archRequested": "32",
+ "dxvkVersion": "3.1.1",
+ "method": "local",
+ "exitCode": 0,
+ "wallSeconds": 1.36,
+ "env": "MESA_VK_VERSION_OVERRIDE=1.3",
+ "conf": "",
+ "dxvkActive": true,
+ "dxvkBanner": "info:  DXVK: v3.1.1",
+ "dxvkErrors": [],
+ "logFiles": [
+  "dxprobe32_d3d9.log"
+ ]
+}

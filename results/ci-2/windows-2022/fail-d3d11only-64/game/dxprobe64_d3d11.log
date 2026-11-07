@@ -1,0 +1,5 @@
+warn:  D3D11InternalCreateDevice: Adapter is not a DXVK adapter
+info:  Game: dxprobe64.exe
+info:  DXVK: v3.1.1
+info:  Build: x86_64 gcc 16.2.0
+err:   Vulkan: vkGetInstanceProcAddr not found
