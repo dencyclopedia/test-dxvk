@@ -1,0 +1,66 @@
+# dxvk.dev test lab. Runs the Windows and Linux matrices on GitHub-hosted runners
+# and commits the evidence to results/<run>/. Trigger: push to a lab branch that
+# touches scripts/ or apps/, or run it by hand.
+name: lab
+on:
+  workflow_dispatch:
+    inputs:
+      run: { description: "run id (folder under results/)", required: true, default: "run-manual" }
+  push:
+    paths: ["scripts/**", "apps/**", ".github/workflows/lab.yml"]
+permissions: { contents: write }
+env:
+  RUN: ${{ github.event.inputs.run || format('ci-{0}', github.run_number) }}
+jobs:
+  windows:
+    strategy: { fail-fast: false, matrix: { os: [windows-2025, windows-2022] } }
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: matrix
+        shell: pwsh
+        env: { GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}" }
+        run: ./scripts/windows_matrix.ps1 -Run $env:RUN -Machine ${{ matrix.os }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: "res-${{ matrix.os }}", path: results/ }
+  linux:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: setup
+        run: |
+          sudo dpkg --add-architecture i386
+          sudo mkdir -pm755 /etc/apt/keyrings
+          sudo wget -qO /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
+          sudo wget -qNP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/noble/winehq-noble.sources
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --install-recommends winehq-stable
+          sudo apt-get install -y -qq mesa-vulkan-drivers mesa-vulkan-drivers:i386 libvulkan1:i386 libgl1:i386 libgl1-mesa-dri:i386 vulkan-tools xvfb imagemagick
+          wine --version; vulkaninfo --summary | grep -E 'apiVersion|deviceName|driverInfo' || true
+      - name: download dxvk
+        run: |
+          mkdir -p dl && for v in 3.1.1 2.7.1 1.10.3; do curl -sSLo dl/dxvk-$v.tar.gz https://github.com/doitsujin/dxvk/releases/download/v$v/dxvk-$v.tar.gz; done
+          sha256sum dl/*.tar.gz
+      - name: matrix
+        run: |
+          Xvfb :99 -screen 0 1280x720x24 & sleep 2
+          DISPLAY=:99 PFX_BASE=$HOME/pfx-lab scripts/linux_cases.sh "$PWD/dl" "$RUN/ubuntu-24.04" base compat hud conf fail cache
+          find results -name '*.exe' -o -name '*.dll' | xargs rm -f
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: res-linux, path: results/ }
+  commit:
+    needs: [windows, linux]
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { path: art }
+      - run: |
+          mkdir -p results && for d in art/*/; do cp -r "$d"* results/; done
+          git config user.name "dxvk-lab"; git config user.email "lab@users.noreply.github.com"
+          git add results && git commit -m "lab results $RUN" && git pull --rebase && git push || echo "nothing to commit"

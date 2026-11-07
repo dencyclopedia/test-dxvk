@@ -1,0 +1,5 @@
+dl/
+*.tar.gz
+results/**/game/*.dll
+results/**/game/*.exe
+results/_shadercache/
