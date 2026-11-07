@@ -1,0 +1,17 @@
+{
+  "ok": false,
+  "error": "no output (crash or timeout)",
+  "case": "compat-dxvk1103-d3d9-64",
+  "dxvkVersion": "1.10.3",
+  "mode": "dxvk",
+  "exitCode": 3,
+  "wallSeconds": 0.11,
+  "env": "{}",
+  "conf": "",
+  "dxvkActive": true,
+  "dxvkBanner": "info:  DXVK: v1.10.3",
+  "dxvkErrors": [],
+  "logFiles": [
+    "dxprobe64_d3d9.log"
+  ]
+}

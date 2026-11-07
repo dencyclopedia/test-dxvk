@@ -1,0 +1,20 @@
+[
+  {
+    "seconds": 0.4930319,
+    "bytes": 18041512,
+    "version": "3.1.1",
+    "sha256": "40565B4A724AADC4433FA4E010B4B23916D9B1F1BAEEE64E17186DB94F54E608"
+  },
+  {
+    "seconds": 0.1849832,
+    "bytes": 10310666,
+    "version": "2.7.1",
+    "sha256": "D85CE7C79F57ECD765AAA1B9E7007CB875E6FDE9F6D331DF799BCE73D513CE87"
+  },
+  {
+    "seconds": 0.1528536,
+    "bytes": 8509003,
+    "version": "1.10.3",
+    "sha256": "8D1A3C912761B450C879F98478AE64F6F6639E40CE6848170A0F6B8596FD53C6"
+  }
+]

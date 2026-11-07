@@ -1,0 +1,19 @@
+{
+  "ok": false,
+  "error": "no output (crash or timeout)",
+  "case": "compat-dxvk271-d3d9-64",
+  "dxvkVersion": "2.7.1",
+  "mode": "dxvk",
+  "exitCode": -1073740791,
+  "wallSeconds": 0.3,
+  "env": "{}",
+  "conf": "",
+  "dxvkActive": true,
+  "dxvkBanner": "info:  DXVK: v2.7.1",
+  "dxvkErrors": [
+    "err:   DxvkInstance::createInstance: Failed to create Vulkan instance"
+  ],
+  "logFiles": [
+    "dxprobe64_d3d9.log"
+  ]
+}

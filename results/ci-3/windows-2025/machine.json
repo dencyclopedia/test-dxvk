@@ -1,0 +1,17 @@
+{
+  "vulkan1InSystem32": true,
+  "ramGB": 16.0,
+  "version": "10.0.26100",
+  "vulkanDriversKey": "",
+  "machine": "windows-2025",
+  "vulkan1InSysWOW64": true,
+  "os": "Microsoft Windows Server 2025 Datacenter",
+  "cpu": "AMD EPYC 7763 64-Core Processor                ",
+  "gpus": {
+    "Name": "Microsoft Hyper-V Video",
+    "DriverVersion": "10.0.26100.1150",
+    "AdapterRAM": null
+  },
+  "build": "26100",
+  "cores": 4
+}

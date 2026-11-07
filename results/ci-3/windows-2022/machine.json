@@ -1,0 +1,17 @@
+{
+  "version": "10.0.20348",
+  "vulkan1InSysWOW64": false,
+  "build": "20348",
+  "vulkan1InSystem32": false,
+  "cores": 4,
+  "os": "Microsoft Windows Server 2022 Datacenter",
+  "vulkanDriversKey": "",
+  "ramGB": 16.0,
+  "gpus": {
+    "Name": "Microsoft Hyper-V Video",
+    "DriverVersion": "10.0.20348.1",
+    "AdapterRAM": null
+  },
+  "machine": "windows-2022",
+  "cpu": "AMD EPYC 7763 64-Core Processor                "
+}
