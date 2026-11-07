@@ -46,6 +46,14 @@ $vk64 = Get-ChildItem "$Dl\vkrt" -Recurse -Filter vulkan-1.dll | Where-Object { 
 $vk32 = Get-ChildItem "$Dl\vkrt" -Recurse -Filter vulkan-1.dll | Where-Object { $_.FullName -match "\\x86\\" } | Select-Object -First 1
 $icd64 = Get-ChildItem "$Dl\mesa\x64" -Filter "lvp_icd*.json" | Select-Object -First 1
 $icd32 = Get-ChildItem "$Dl\mesa\x86" -Filter "lvp_icd*.json" | Select-Object -First 1
+# The Vulkan loader ignores VK_DRIVER_FILES / VK_ICD_FILENAMES in elevated processes (CI runs as admin),
+# so the lavapipe ICDs are registered the way a real driver installer does it.
+function Register-Lvp { New-Item -Force "HKLM:\SOFTWARE\Khronos\Vulkan\Drivers" | Out-Null; New-Item -Force "HKLM:\SOFTWARE\WOW6432Node\Khronos\Vulkan\Drivers" | Out-Null
+  New-ItemProperty -Force "HKLM:\SOFTWARE\Khronos\Vulkan\Drivers" -Name $icd64.FullName -Value 0 -PropertyType DWord | Out-Null
+  New-ItemProperty -Force "HKLM:\SOFTWARE\WOW6432Node\Khronos\Vulkan\Drivers" -Name $icd32.FullName -Value 0 -PropertyType DWord | Out-Null }
+function Unregister-Lvp { Remove-ItemProperty "HKLM:\SOFTWARE\Khronos\Vulkan\Drivers" -Name $icd64.FullName -ErrorAction SilentlyContinue
+  Remove-ItemProperty "HKLM:\SOFTWARE\WOW6432Node\Khronos\Vulkan\Drivers" -Name $icd32.FullName -ErrorAction SilentlyContinue }
+Register-Lvp
 @{ mesa = $rel.tag_name; mesaAsset = $asset.name; vulkan64 = "$vk64"; vulkan32 = "$vk32"; icd64 = "$icd64"; icd32 = "$icd32" } |
   ConvertTo-Json | Set-Content "$Out\vulkan-setup.json"
 
@@ -65,6 +73,7 @@ function Case($name, $api, $arch, $frames, $draws, $ver, $mode, $envs = @{}, $co
     }
     if ($mode -ne "novulkan") { Copy-Item $vk.FullName $game; $env:VK_DRIVER_FILES = $icd.FullName; $env:VK_ICD_FILENAMES = $icd.FullName }
   }
+  if ($mode -eq "novulkan") { Unregister-Lvp } else { Register-Lvp }
   if ($conf) { Set-Content "$game\dxvk.conf" $conf }
   foreach ($k in $envs.Keys) { Set-Item "env:$k" $envs[$k] }
   $t0 = Get-Date
